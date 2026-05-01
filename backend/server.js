@@ -8,7 +8,10 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 
 app.use(cors({
-  origin: '*',
+  origin: [
+    'http://localhost:5173',
+    'https://team-task-manager-production-71cb.up.railway.app',
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
