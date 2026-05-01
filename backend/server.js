@@ -1,20 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
-};
+}
 
 const app = express();
 
-app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'https://team-task-manager-production-71cb.up.railway.app',
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth',     require('./routes/auth'));
